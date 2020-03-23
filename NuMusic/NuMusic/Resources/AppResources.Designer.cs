@@ -59,5 +59,14 @@ namespace NuMusic.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NuMuzic.
+        /// </summary>
+        internal static string _1000 {
+            get {
+                return ResourceManager.GetString("1000", resourceCulture);
+            }
+        }
     }
 }

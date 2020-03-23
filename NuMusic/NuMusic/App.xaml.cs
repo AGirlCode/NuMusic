@@ -1,11 +1,11 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using NuMusic.Configurations;
 using NuMusic.Services;
+using NuMusic.ViewModels;
 using NuMusic.Views;
+using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
-using Prism;
+using Xamarin.Forms;
 
 namespace NuMusic
 {
@@ -18,6 +18,7 @@ namespace NuMusic
 
             DependencyService.Register<MockDataStore>();
 
+            MainPage = new MainPage();
         }
 
         public App(IPlatformInitializer initializer = null) : base(initializer)
@@ -28,14 +29,12 @@ namespace NuMusic
         {
             //Register Syncfusion license
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense(AppSettings.SyncFusionLicenseKey);
-            InitializeComponent();
-            // Đặt ngôn ngữ cho App dựa vào property đã lưu, nếu không có thì đặt tiếng Việt làm mặc định
-            SetAppLanguage();
+            InitializeComponent(); 
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-
+            containerRegistry.RegisterForNavigation<MainPage, MainContentPageVM>();
 
         }
     }
