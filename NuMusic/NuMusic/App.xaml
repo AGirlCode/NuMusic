@@ -19,7 +19,8 @@
             
             <!--color app-->
             <Color x:Key="BackgroundDefaultColor">#000000</Color>
-            <Color x:Key="TextDefaultColor">#fefefe</Color> 
+            <Color x:Key="TextDefaultColor">#fefefe</Color>
+            <Color x:Key="MainColor">#ff0000</Color>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

@@ -25,6 +25,7 @@ namespace NuMusic.iOS
             global::Xamarin.Forms.Forms.Init();
             Syncfusion.XForms.iOS.TabView.SfTabViewRenderer.Init();
 
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
 
             LoadApplication(new App());
 

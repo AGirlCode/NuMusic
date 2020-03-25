@@ -147,6 +147,9 @@
     <PackageReference Include="Syncfusion.Xamarin.SfTabView">
       <Version>17.4.0.55</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
   </ItemGroup>
@@ -156,5 +159,32 @@
       <Project>{0CEC2893-6C67-4462-A59F-86BB647D03C9}</Project>
       <Name>NuMusic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_home%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_home%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_search%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_search%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_library%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_library%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\TabIcon_library.png" />
   </ItemGroup>
 </Project>

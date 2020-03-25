@@ -1,13 +1,54 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              mc:Ignorable="d"
+             xmlns:helper="clr-namespace:NuMusic.Helpers"
              x:Class="NuMusic.Views.HomeContentView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <!--title-->
+                <RowDefinition Height="50" />
+                <!--main-->
+                <RowDefinition />
+                <!--play music-->
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions> 
+            <Button Grid.Row="0" 
+                    Text="{helper:Translate 1000}" />
+            <svg:SvgCachedImage x:Name="PlayingImg" Grid.Row="1" 
+                                Aspect="AspectFit"
+                                Source="resource://NuMusic.Resources.Svg.icon_playing.svg"
+                                VerticalOptions="CenterAndExpand"/>
+            <Grid  Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="42" />
+                    <ColumnDefinition Width="42" />
+                    <ColumnDefinition Width="42"/>
+                </Grid.ColumnDefinitions>
+                <svg:SvgCachedImage Grid.Row="0"
+                                    Grid.Column="1"
+                                    Aspect="AspectFit"
+                                    Source="resource://NuMusic.Resources.Svg.icon_back.svg"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="32"/>
+                <svg:SvgCachedImage Grid.Row="0"
+                                    Grid.Column="2"
+                                    Aspect="AspectFit"
+                                    Source="resource://NuMusic.Resources.Svg.icon_play.svg"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="32" />
+                <svg:SvgCachedImage Grid.Row="0"
+                                    Grid.Column="3"
+                                    Aspect="AspectFit"
+                                    Source="resource://NuMusic.Resources.Svg.icon_next.svg"
+                                    VerticalOptions="CenterAndExpand"
+                                    WidthRequest="32" />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
 </ContentView>

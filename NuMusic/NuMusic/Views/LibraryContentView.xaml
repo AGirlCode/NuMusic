@@ -6,8 +6,9 @@
              mc:Ignorable="d"
              x:Class="NuMusic.Views.LibraryContentView">
   <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
+      <StackLayout BackgroundColor="White">
+          <Label Text="Hello Xamarin.Forms!" 
+                 BackgroundColor="LightPink"/>
       </StackLayout>
   </ContentView.Content>
 </ContentView>
