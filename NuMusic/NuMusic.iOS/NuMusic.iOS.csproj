@@ -112,12 +112,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <BundleResource Include="Resources\tab_about.png" />
-    <BundleResource Include="Resources\tab_about%402x.png" />
-    <BundleResource Include="Resources\tab_about%403x.png" />
-    <BundleResource Include="Resources\tab_feed.png" />
-    <BundleResource Include="Resources\tab_feed%402x.png" />
-    <BundleResource Include="Resources\tab_feed%403x.png" />
     <BundleResource Include="Resources\xamarin_logo.png" />
     <BundleResource Include="Resources\xamarin_logo%402x.png" />
     <BundleResource Include="Resources\xamarin_logo%403x.png" />
@@ -176,30 +170,57 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_home%402x.png" />
+    <BundleResource Include="Resources\ic_search_selected%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_home%403x.png" />
+    <BundleResource Include="Resources\ic_home%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_home.png" />
+    <BundleResource Include="Resources\ic_home_selected%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_search%403x.png" />
+    <BundleResource Include="Resources\ic_library%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_search%402x.png" />
+    <BundleResource Include="Resources\ic_library_selected%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_search.png" />
+    <BundleResource Include="Resources\ic_search%402x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_library%402x.png" />
+    <BundleResource Include="Resources\ic_search_selected%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_library%403x.png" />
+    <BundleResource Include="Resources\ic_home%403x.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\TabIcon_library.png" />
+    <BundleResource Include="Resources\ic_home_selected%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_library%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_library_selected%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_search%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_search_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_home_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_library_selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_search.png" />
   </ItemGroup>
 </Project>

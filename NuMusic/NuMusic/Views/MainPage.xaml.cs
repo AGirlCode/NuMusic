@@ -14,6 +14,10 @@ namespace NuMusic.Views
         {
             InitializeComponent();
             _viewModel = (MainContentPageVM)BindingContext;
+            TabContents.SelectedIndex = 1;
+            TabContents.Items[0].ImageSource = "ic_library.png";
+            TabContents.Items[1].ImageSource = "ic_home_selected.png";
+            TabContents.Items[2].ImageSource = "ic_search.png";
         }
         protected override void OnAppearing()
         {
@@ -26,10 +30,22 @@ namespace NuMusic.Views
             switch (e.Index)
             {
                 case 0:
+                    TabContents.Items[0].ImageSource = "ic_library_selected.png";
+                    TabContents.Items[1].ImageSource = "ic_home.png";
+                    TabContents.Items[2].ImageSource = "ic_search.png";
                     break;
                 case 1:
                 {
-
+                    TabContents.Items[0].ImageSource = "ic_library.png";
+                    TabContents.Items[1].ImageSource = "ic_home_selected.png";
+                    TabContents.Items[2].ImageSource = "ic_search.png";
+                    break;
+                }
+                case 2:
+                {
+                    TabContents.Items[0].ImageSource = "ic_library.png";
+                    TabContents.Items[1].ImageSource = "ic_home.png";
+                    TabContents.Items[2].ImageSource = "ic_search_selected.png";
                     break;
                 }
             }

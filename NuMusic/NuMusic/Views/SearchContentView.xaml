@@ -7,9 +7,19 @@
              x:Class="NuMusic.Views.SearchContentView"
              x:Name="view">
     <ContentView.Content>
-        <StackLayout BindingContext="{Binding DataSource, Source={x:Reference view}}">
-            <Label Text="{Binding Tesst}"
-                   TextColor="Black" />
+        <StackLayout BindingContext="{Binding DataSource, Source={x:Reference view}}"
+                     Padding="0"
+                     Margin="0"
+                     BackgroundColor="White">
+            <SearchBar Placeholder="Nghe gì hôm nay?"
+                       PlaceholderColor="{StaticResource LightGrayColor}"
+                      
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    FontSize="{OnPlatform iOS=15,Android=14}"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

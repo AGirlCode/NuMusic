@@ -10,48 +10,45 @@
              x:Class="NuMusic.Views.MainPage">
     <ContentPage.Content>
         <sfTabView:SfTabView x:Name="TabContents"
-                             EnableSwiping="True" 
-                             DisplayMode="ImageWithText"
+                             EnableSwiping="False"
+                             DisplayMode="Image"
                              VisibleHeaderCount="3"
-                             TabHeight="75"  
-                             SelectionChanged="TabContents_SelectionChanged" >
+                             TabHeaderPosition="Bottom" 
+                             BackgroundColor="{StaticResource LightGrayColor}"
+                             SelectionChanged="TabContents_SelectionChanged">
             <sfTabView:SfTabView.SelectionIndicatorSettings>
                 <sfTabView:SelectionIndicatorSettings Color="{StaticResource PrimaryColor}" />
             </sfTabView:SfTabView.SelectionIndicatorSettings>
-            
-                <!--tab danh sách bài hát-->
+            <!--tab danh sách bài hát-->
             <sfTabView:SfTabItem  Title="Camera"
-                                  ImageSource="TabIcon_library.png"
-                                       TitleFontSize="14"
-                                       FontIconFontAttributes="Bold"
-                                       SelectionColor="{StaticResource PrimaryColor}"
-                                       TitleFontColor="{StaticResource GrayColor}">
-                    <sfTabView:SfTabItem.Content>
-                        <views:LibraryContentView DataSource="{Binding LibraryContentViewVM}" />
-                    </sfTabView:SfTabItem.Content>
-                </sfTabView:SfTabItem>
-                <!--tab trang chủ-->
-                <sfTabView:SfTabItem  Title="Home"
-                                  ImageSource="TabIcon_home.png"
-                                      TitleFontSize="14"
-                                      FontIconFontAttributes="Bold"
-                                      SelectionColor="{StaticResource PrimaryColor}"
-                                      TitleFontColor="{StaticResource GrayColor}">
-                    <sfTabView:SfTabItem.Content>
-                        <views:HomeContentView DataSource="{Binding HomeContentViewVM}" />
-                    </sfTabView:SfTabItem.Content>
-                </sfTabView:SfTabItem>
-                <!--tab tìm kiếm online-->
-                <sfTabView:SfTabItem Title="Search"
-                                     ImageSource="TabIcon_search.png"
-                                     TitleFontSize="14"
-                                     FontIconFontAttributes="Bold"
-                                     SelectionColor="{StaticResource PrimaryColor}"
-                                     TitleFontColor="{StaticResource GrayColor}">
-                    <sfTabView:SfTabItem.Content>
-                        <views:SearchContentView DataSource="{Binding SearchContentViewVM}" />
-                    </sfTabView:SfTabItem.Content>
-                </sfTabView:SfTabItem> 
+                                  TitleFontSize="14"
+                                  FontIconFontAttributes="Bold"
+                                  SelectionColor="{StaticResource PrimaryColor}"
+                                  TitleFontColor="{StaticResource GrayColor}">
+                <sfTabView:SfTabItem.Content>
+                    <views:LibraryContentView DataSource="{Binding LibraryContentViewVM}" />
+                </sfTabView:SfTabItem.Content>
+            </sfTabView:SfTabItem>
+            <!--tab trang chủ-->
+            <sfTabView:SfTabItem  Title="Home"
+                                  TitleFontSize="14"
+                                  FontIconFontAttributes="Bold"
+                                  SelectionColor="{StaticResource PrimaryColor}"
+                                  TitleFontColor="{StaticResource GrayColor}">
+                <sfTabView:SfTabItem.Content>
+                    <views:HomeContentView DataSource="{Binding HomeContentViewVM}" />
+                </sfTabView:SfTabItem.Content>
+            </sfTabView:SfTabItem>
+            <!--tab tìm kiếm online-->
+            <sfTabView:SfTabItem Title="Search"
+                                 TitleFontSize="14"
+                                 FontIconFontAttributes="Bold"
+                                 SelectionColor="{StaticResource PrimaryColor}"
+                                 TitleFontColor="{StaticResource GrayColor}">
+                <sfTabView:SfTabItem.Content>
+                    <views:SearchContentView DataSource="{Binding SearchContentViewVM}" />
+                </sfTabView:SfTabItem.Content>
+            </sfTabView:SfTabItem>
         </sfTabView:SfTabView>
     </ContentPage.Content>
 </ContentPage>

@@ -12,22 +12,22 @@
 
   <ItemGroup>
     <None Remove="Resources\Svg\icon_back.svg" />
+    <None Remove="Resources\Svg\icon_back_disable.svg" />
     <None Remove="Resources\Svg\icon_next.svg" />
+    <None Remove="Resources\Svg\icon_next_disable.svg" />
     <None Remove="Resources\Svg\icon_play.svg" />
     <None Remove="Resources\Svg\icon_playing.svg" />
-    <None Remove="Resources\Svg\ic_home.svg" />
-    <None Remove="Resources\Svg\ic_list.svg" />
-    <None Remove="Resources\Svg\ic_search.svg" />
+    <None Remove="Resources\Svg\ic_pause.svg" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Svg\icon_back.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_back_disable.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_next.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_next_disable.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_play.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_playing.svg" />
-    <EmbeddedResource Include="Resources\Svg\ic_home.svg" />
-    <EmbeddedResource Include="Resources\Svg\ic_list.svg" />
-    <EmbeddedResource Include="Resources\Svg\ic_search.svg" />
+    <EmbeddedResource Include="Resources\Svg\ic_pause.svg" />
   </ItemGroup>
 
   <ItemGroup>

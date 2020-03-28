@@ -5,13 +5,82 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="NuMusic.Views.LibraryContentView"
-             x:Name="view"
-            >
+             x:Name="view">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions"
+                        Value="Fill" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
     <ContentView.Content>
-        <StackLayout x:Name="MainLayout" BackgroundColor="White"
-                     BindingContext="{Binding DataSource, Source={x:Reference view}}">
-            <Label Text="{Binding Tesst}"
-                   BackgroundColor="LightPink" />
+        <StackLayout x:Name="MainLayout"
+                     BackgroundColor="White"
+                     BindingContext="{Binding DataSource, Source={x:Reference view}}"
+                     Padding="0">
+            <Button Text="Danh sách nhạc" 
+                    BackgroundColor="{StaticResource PrimaryColor}"
+                    FontSize="{OnPlatform iOS=15,Android=14}"
+                    FontAttributes="Bold"
+                    BorderColor="{StaticResource PrimaryColor}"
+                    BorderWidth="1"
+                    CornerRadius="0"
+                    Padding="0"
+                    TextColor="White"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"/>
+            <ListView ItemsSource="{Binding SongList}"
+                      BackgroundColor="White"
+                      SeparatorColor="{StaticResource LightGrayColor}"
+                      RowHeight="50"
+                      Margin="8,0,8,0"
+                      VerticalScrollBarVisibility="Always">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                    <RowDefinition Height="0.5"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0"
+                                       Grid.Row="0"
+                                       Text="{Binding Title}"
+                                       TextColor="Black"
+                                       FontSize="{OnPlatform iOS=14, Android=14}" />
+                                <Label Grid.Column="0"
+                                       Grid.Row="1"
+                                       Text="{Binding ContributingArtists}"
+                                       TextColor="#333333"
+                                       FontSize="{OnPlatform iOS=12, Android=12}" />
+                                <Label Grid.Column="1"
+                                       Grid.Row="1"
+                                       Text="{Binding Length}"
+                                       TextColor="#333333"
+                                       HorizontalTextAlignment="End"
+                                       FontSize="{OnPlatform iOS=12, Android=12}" />
+                                <BoxView Grid.Row="2"
+                                         Grid.ColumnSpan="2"
+                                         Grid.Column="0" 
+                                         HeightRequest="0.5"
+                                         BackgroundColor="{StaticResource LightGray}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

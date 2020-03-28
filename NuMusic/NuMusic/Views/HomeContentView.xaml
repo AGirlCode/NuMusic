@@ -9,46 +9,73 @@
              x:Class="NuMusic.Views.HomeContentView"
              x:Name="view">
     <ContentView.Content>
-        <Grid BindingContext="{Binding DataSource, Source={x:Reference view}}">
+        <Grid BindingContext="{Binding DataSource, Source={x:Reference view}}"
+              BackgroundColor="White"
+              Padding="8">
             <Grid.RowDefinitions>
                 <!--title-->
                 <RowDefinition Height="50" />
                 <!--main-->
                 <RowDefinition Height="*" />
                 <!--play music-->
-                <RowDefinition Height="75" />
-            </Grid.RowDefinitions> 
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
             <!--Text="{helper:Translate 1000}"-->
-            <svg:SvgCachedImage x:Name="PlayingImg" Grid.Row="1" 
+            <svg:SvgCachedImage x:Name="PlayingImg"
+                                Grid.Row="1"
                                 Aspect="AspectFit"
                                 Source="resource://NuMusic.Resources.Svg.icon_playing.svg"
-                                VerticalOptions="CenterAndExpand"/>
-            <Grid BackgroundColor="Red"  Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="42" />
-                    <ColumnDefinition Width="42" />
-                    <ColumnDefinition Width="42"/>
-                </Grid.ColumnDefinitions> 
-                <svg:SvgCachedImage Grid.Row="0"
-                                    Grid.Column="1"
-                                    Aspect="AspectFit"
-                                    Source="resource://NuMusic.Resources.Svg.icon_back.svg"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="32"/>
-                <svg:SvgCachedImage Grid.Row="0"
-                                    Grid.Column="2"
-                                    Aspect="AspectFit"
-                                    Source="resource://NuMusic.Resources.Svg.icon_play.svg"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="32" />
-                <svg:SvgCachedImage Grid.Row="0"
-                                    Grid.Column="3"
-                                    Aspect="AspectFit"
-                                    Source="resource://NuMusic.Resources.Svg.icon_next.svg"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="32" />
-            </Grid>
+                                VerticalOptions="CenterAndExpand"
+                                Margin="50" />
+            <Frame Grid.Row="2"
+                   Margin="0"
+                   Padding="8,0,8,0"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   CornerRadius="4"
+                   BorderColor="{StaticResource GrayColor}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="42" />
+                        <ColumnDefinition Width="42" />
+                        <ColumnDefinition Width="42" />
+                    </Grid.ColumnDefinitions>
+                    <ScrollView x:Name="TitleScrollView"
+                                Padding="0"
+                                HorizontalScrollBarVisibility="Never"
+                                Orientation="Horizontal">
+                        <Label x:Name="TitleLabel"
+                               Text="Hương tóc mạ non - Quốc Đại - Cẩm lyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+                               FontSize="{OnPlatform iOS=14,Android=14}"
+                               TextColor="{StaticResource PrimaryColor}"
+                               VerticalOptions="Fill"
+                               HorizontalOptions="Fill"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start"
+                               PropertyChanged="TitleLabel_PropertyChanged"/>
+                    </ScrollView>
+                    <svg:SvgCachedImage  x:Name="PreviousSongImage"
+                                         Grid.Column="1"
+                                         Aspect="AspectFit"
+                                         Source="resource://NuMusic.Resources.Svg.icon_back.svg"
+                                         VerticalOptions="CenterAndExpand"
+                                         WidthRequest="28" />
+                    <svg:SvgCachedImage x:Name="PlaySongImage"
+                                        Grid.Column="2"
+                                        Aspect="AspectFit"
+                                        Source="resource://NuMusic.Resources.Svg.icon_play.svg"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="28"
+                                        Margin="4,0,4,0" />
+                    <svg:SvgCachedImage x:Name="NextSongImage"
+                                        Grid.Column="3"
+                                        Aspect="AspectFit"
+                                        Source="resource://NuMusic.Resources.Svg.icon_next.svg"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="28" />
+                </Grid>
+            </Frame>
         </Grid>
     </ContentView.Content>
 </ContentView>
