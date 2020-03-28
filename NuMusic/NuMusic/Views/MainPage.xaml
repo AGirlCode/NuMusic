@@ -8,39 +8,50 @@
              xmlns:sfTabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              xmlns:views="clr-namespace:NuMusic.Views"
              x:Class="NuMusic.Views.MainPage">
-    
     <ContentPage.Content>
-        <sfTabView:SfTabView  EnableSwiping="True"
-                              DisplayMode="ImageWithText" 
-                             VisibleHeaderCount="3"  
-                              TabHeight="75"
-                              BackgroundColor="Black">
+        <sfTabView:SfTabView x:Name="TabContents"
+                             EnableSwiping="True" 
+                             DisplayMode="ImageWithText"
+                             VisibleHeaderCount="3"
+                             TabHeight="75"  
+                             SelectionChanged="TabContents_SelectionChanged" >
             <sfTabView:SfTabView.SelectionIndicatorSettings>
-                <sfTabView:SelectionIndicatorSettings Color="{StaticResource MainColor}" />
+                <sfTabView:SelectionIndicatorSettings Color="{StaticResource PrimaryColor}" />
             </sfTabView:SfTabView.SelectionIndicatorSettings>
-            <sfTabView:SfTabView.Items>
-            <!--tab danh sách bài hát-->
-                <sfTabView:SfTabItem   Title="Library"
-                                      ImageSource="TabIcon_library.png">
+            
+                <!--tab danh sách bài hát-->
+            <sfTabView:SfTabItem  Title="Camera"
+                                  ImageSource="TabIcon_library.png"
+                                       TitleFontSize="14"
+                                       FontIconFontAttributes="Bold"
+                                       SelectionColor="{StaticResource PrimaryColor}"
+                                       TitleFontColor="{StaticResource GrayColor}">
                     <sfTabView:SfTabItem.Content>
-                        <views:LibraryContentView />
+                        <views:LibraryContentView DataSource="{Binding LibraryContentViewVM}" />
                     </sfTabView:SfTabItem.Content>
                 </sfTabView:SfTabItem>
                 <!--tab trang chủ-->
                 <sfTabView:SfTabItem  Title="Home"
-                                     ImageSource="TabIcon_home.png">
-                <sfTabView:SfTabItem.Content>
-                    <views:HomeContentView />
-                </sfTabView:SfTabItem.Content>
-                </sfTabView:SfTabItem> 
+                                  ImageSource="TabIcon_home.png"
+                                      TitleFontSize="14"
+                                      FontIconFontAttributes="Bold"
+                                      SelectionColor="{StaticResource PrimaryColor}"
+                                      TitleFontColor="{StaticResource GrayColor}">
+                    <sfTabView:SfTabItem.Content>
+                        <views:HomeContentView DataSource="{Binding HomeContentViewVM}" />
+                    </sfTabView:SfTabItem.Content>
+                </sfTabView:SfTabItem>
                 <!--tab tìm kiếm online-->
                 <sfTabView:SfTabItem Title="Search"
-                                     ImageSource="TabIcon_search.png">
-                <sfTabView:SfTabItem.Content>
-                    <views:SearchContentView />
-                </sfTabView:SfTabItem.Content>
-                </sfTabView:SfTabItem>
-            </sfTabView:SfTabView.Items>
+                                     ImageSource="TabIcon_search.png"
+                                     TitleFontSize="14"
+                                     FontIconFontAttributes="Bold"
+                                     SelectionColor="{StaticResource PrimaryColor}"
+                                     TitleFontColor="{StaticResource GrayColor}">
+                    <sfTabView:SfTabItem.Content>
+                        <views:SearchContentView DataSource="{Binding SearchContentViewVM}" />
+                    </sfTabView:SfTabItem.Content>
+                </sfTabView:SfTabItem> 
         </sfTabView:SfTabView>
     </ContentPage.Content>
 </ContentPage>

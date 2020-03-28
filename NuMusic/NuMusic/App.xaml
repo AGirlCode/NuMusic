@@ -18,9 +18,9 @@
             </Style>
             
             <!--color app-->
-            <Color x:Key="BackgroundDefaultColor">#000000</Color>
-            <Color x:Key="TextDefaultColor">#fefefe</Color>
-            <Color x:Key="MainColor">#ff0000</Color>
+            <Color x:Key="PrimaryColor">#2AAC00</Color>
+            <Color x:Key="LightGrayColor">#d8d8d8</Color>
+            <Color x:Key="GrayColor">#9A9A9A</Color>
         </ResourceDictionary>
     </Application.Resources>
 </prism:PrismApplication>

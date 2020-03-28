@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using NuMusic.ViewModels;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace NuMusic.Views
@@ -8,9 +9,30 @@ namespace NuMusic.Views
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
+        private MainContentPageVM _viewModel;
         public MainPage()
         {
             InitializeComponent();
+            _viewModel = (MainContentPageVM)BindingContext;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+        }
+
+        private void TabContents_SelectionChanged(object sender, Syncfusion.XForms.TabView.SelectionChangedEventArgs e)
+        {
+            switch (e.Index)
+            {
+                case 0:
+                    break;
+                case 1:
+                {
+
+                    break;
+                }
+            }
         }
     }
 }

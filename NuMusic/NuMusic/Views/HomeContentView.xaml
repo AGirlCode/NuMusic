@@ -6,30 +6,30 @@
              xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              mc:Ignorable="d"
              xmlns:helper="clr-namespace:NuMusic.Helpers"
-             x:Class="NuMusic.Views.HomeContentView">
+             x:Class="NuMusic.Views.HomeContentView"
+             x:Name="view">
     <ContentView.Content>
-        <Grid>
+        <Grid BindingContext="{Binding DataSource, Source={x:Reference view}}">
             <Grid.RowDefinitions>
                 <!--title-->
                 <RowDefinition Height="50" />
                 <!--main-->
-                <RowDefinition />
+                <RowDefinition Height="*" />
                 <!--play music-->
                 <RowDefinition Height="75" />
             </Grid.RowDefinitions> 
-            <Button Grid.Row="0" 
-                    Text="{helper:Translate 1000}" />
+            <!--Text="{helper:Translate 1000}"-->
             <svg:SvgCachedImage x:Name="PlayingImg" Grid.Row="1" 
                                 Aspect="AspectFit"
                                 Source="resource://NuMusic.Resources.Svg.icon_playing.svg"
                                 VerticalOptions="CenterAndExpand"/>
-            <Grid  Grid.Row="2">
+            <Grid BackgroundColor="Red"  Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition Width="42" />
                     <ColumnDefinition Width="42" />
                     <ColumnDefinition Width="42"/>
-                </Grid.ColumnDefinitions>
+                </Grid.ColumnDefinitions> 
                 <svg:SvgCachedImage Grid.Row="0"
                                     Grid.Column="1"
                                     Aspect="AspectFit"

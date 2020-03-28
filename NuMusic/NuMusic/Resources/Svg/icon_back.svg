@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px"><g><g>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512px" height="512px" class=""><g><g>
 	<g>
-		<g>
-			<path d="M256,0C114.833,0,0,114.833,0,256s114.833,256,256,256s256-114.833,256-256S397.167,0,256,0z M256,490.667     C126.604,490.667,21.333,385.396,21.333,256S126.604,21.333,256,21.333S490.667,126.604,490.667,256S385.396,490.667,256,490.667     z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FEFEFE"/>
-			<path d="M306.208,131.125c-4.167-4.167-10.917-4.167-15.083,0L173.792,248.458c-4.167,4.167-4.167,10.917,0,15.083     l117.333,117.333c2.083,2.083,4.813,3.125,7.542,3.125c2.729,0,5.458-1.042,7.542-3.125c4.167-4.167,4.167-10.917,0-15.083     L196.417,256l109.792-109.792C310.375,142.042,310.375,135.292,306.208,131.125z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#FEFEFE"/>
-		</g>
+		<path d="M317.925,28.138L293.546,0L14.395,241.931c-4.076,3.536-6.42,8.672-6.42,14.069s2.345,10.515,6.42,14.069L293.546,512    l24.379-28.138L55.002,256L317.925,28.138z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#2AAC00"/>
+	</g>
+</g><g>
+	<g>
+		<path d="M504.026,28.138L479.646,0L200.495,241.931c-4.076,3.536-6.42,8.672-6.42,14.069s2.345,10.515,6.42,14.069L479.646,512    l24.379-28.138L241.103,256L504.026,28.138z" data-original="#000000" class="active-path" data-old_color="#000000" fill="#2AAC00"/>
 	</g>
 </g></g> </svg>
