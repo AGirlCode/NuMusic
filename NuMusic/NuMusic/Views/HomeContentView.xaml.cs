@@ -13,8 +13,6 @@ namespace NuMusic.Views
     public partial class HomeContentView : ContentView
     {
         private ImageRotationAnimation _animation;
-        private LabelScrollAnimation _labelAnimation;
-        private string _titlePrev;
         public static readonly BindableProperty DataSourceProperty =
                BindableProperty.Create(nameof(DataSource), typeof(HomeContentViewVM),
                    typeof(HomeContentView));
@@ -31,46 +29,81 @@ namespace NuMusic.Views
 
             _animation = new ImageRotationAnimation();
             _animation.RegisterRotation(PlayingImg);
-             
+
         }
 
-        private async void TitleLabel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void TypePlaySongImage_Tapped(object sender, EventArgs e)
         {
-            try
+            var viewModel = DataSource;
+
+            switch (viewModel.TypePlayMusic)
             {
-                if (e != null && e.PropertyName == "Text")
+                case TYPE_PLAY_MUSIC.PLAY_REPEAT_ALL:
                 {
-                    Debug.WriteLine("Property " + e.PropertyName);
-                    if (_animation != null)
-                        _animation.Stop();
-                    await TitleLabel.TranslateTo(0, 0, 100);
-                    var label = (Label)sender;
-                    if (!string.IsNullOrEmpty(label.Text) && label.Text != _titlePrev)
-                    {
-                        _titlePrev = label.Text;
-                        _labelAnimation = new LabelScrollAnimation();
-                        _labelAnimation.RegisterScroll(TitleLabel, TitleScrollView);
-                    }
+                    viewModel.TypePlayMusic = TYPE_PLAY_MUSIC.PLAY_REPEAT_ONE;
+                    TypePlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_play_repeat1.svg");
+                    break;
                 }
-            } catch (Exception exception)
-            {
-                Crashes.TrackError(exception);
+                case TYPE_PLAY_MUSIC.PLAY_REPEAT_ONE:
+                {
+                    viewModel.TypePlayMusic = TYPE_PLAY_MUSIC.PLAY_RANDOM;
+                    TypePlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_play_random.svg");
+                    break;
+                }
+                case TYPE_PLAY_MUSIC.PLAY_RANDOM:
+                {
+                    viewModel.TypePlayMusic = TYPE_PLAY_MUSIC.PLAY_REPEAT_ALL;
+                    TypePlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_play_repeat.svg");
+                    break;
+                }
             }
+        }
+
+        private void PreviousSongImage_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PlaySongImage_Tapped(object sender, EventArgs e)
+        {
+            var viewModel = DataSource;
+            var isPlaying = viewModel.IsPlayingMusic;
+            viewModel.IsPlayingMusic = !isPlaying;
+            if (viewModel.IsPlayingMusic)
+            {
+                _animation.Start();
+                PlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_play.svg");
+            } else
+            {
+                _animation.Stop();
+                PlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_pause.svg");
+            }
+        }
+
+        private void NextSongImage_Tapped(object sender, EventArgs e)
+        {
+
         }
     }
     class ImageRotationAnimation
     {
         int rotation = 0;
+        bool IsPlaying = false;
         public ImageRotationAnimation()
         {
         }
 
+        public void Start()
+        {
+            IsPlaying = true;
+        }
         public void RegisterRotation(SvgCachedImage image)
         {
             Device.StartTimer(TimeSpan.FromMilliseconds(2), () =>
             {
                 Console.WriteLine("RegisterScroll1 RegisterScroll");
-
+                if (!IsPlaying)
+                    return true;
 
                 Task.Run(async () =>
                 {
@@ -85,52 +118,7 @@ namespace NuMusic.Views
 
         public void Stop()
         {
-        }
-    }
-
-
-    /// <summary>
-    /// Lớp chứa animation để cuộn tên bài hát
-    /// </summary>
-    class LabelScrollAnimation
-    {
-        private bool _isRight;
-        public bool IsReturn;
-
-        public LabelScrollAnimation()
-        {
-            IsReturn = true;
-        }
-
-        public void RegisterScroll(Label nameStock, ScrollView viewScroll)
-        {
-            Device.StartTimer(TimeSpan.FromMilliseconds(5000), () =>
-            {
-                Console.WriteLine("RegisterScroll Title Song");
-                if (!IsReturn)
-                    return IsReturn;
-                if (nameStock.Text == null || viewScroll.Width >= nameStock.Width)
-                    return false;
-                Task.Run(async () =>
-                {
-                    if (_isRight)
-                    {
-                        _isRight = false;
-                        await nameStock.TranslateTo(16, 0, 5000);
-                    } else
-                    {
-                        _isRight = true;
-                        await nameStock.TranslateTo((-1) * ((nameStock.Width - viewScroll.Width) + 16), 0, 5000);
-                    }
-                });
-                return IsReturn;
-            });
-        }
-         
-
-        public void Stop()
-        {
-            IsReturn = false;
+            IsPlaying = false;
         }
     }
 }

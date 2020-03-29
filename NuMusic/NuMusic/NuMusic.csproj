@@ -15,9 +15,12 @@
     <None Remove="Resources\Svg\icon_back_disable.svg" />
     <None Remove="Resources\Svg\icon_next.svg" />
     <None Remove="Resources\Svg\icon_next_disable.svg" />
+    <None Remove="Resources\Svg\icon_pause.svg" />
     <None Remove="Resources\Svg\icon_play.svg" />
     <None Remove="Resources\Svg\icon_playing.svg" />
-    <None Remove="Resources\Svg\ic_pause.svg" />
+    <None Remove="Resources\Svg\icon_play_random.svg" />
+    <None Remove="Resources\Svg\icon_play_repeat.svg" />
+    <None Remove="Resources\Svg\icon_play_repeat1.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,9 +28,12 @@
     <EmbeddedResource Include="Resources\Svg\icon_back_disable.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_next.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_next_disable.svg" />
-    <EmbeddedResource Include="Resources\Svg\icon_play.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_pause.svg" />
     <EmbeddedResource Include="Resources\Svg\icon_playing.svg" />
-    <EmbeddedResource Include="Resources\Svg\ic_pause.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_play_random.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_play_repeat.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_play_repeat1.svg" />
+    <EmbeddedResource Include="Resources\Svg\icon_play.svg" />
   </ItemGroup>
 
   <ItemGroup>

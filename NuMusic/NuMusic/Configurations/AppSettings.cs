@@ -22,7 +22,7 @@ namespace NuMusic.Configurations
         public static string AppVersion => "1.0.0";
 
         internal const string SyncFusionLicenseKey =
-            "MTYyMjYwQDMxMzcyZTMzMmUzMERMejNYbVZ5aVpZUnk4ZGs0TWxiQW9pQnVsSDhzZnRGVE5sWnZxSE9DOHM9";
+            "MTg5MjczQDMxMzcyZTM0MmUzMFl6eWl1OVdjdmt6QkgxRUdzVmtBZVZhZmdyN0lHL1BBRkgxT2ExbWJwbXM9";
 
 
         internal static readonly LanguageCulture LanguageVI = new LanguageCulture() { Id = 1, CultureName = "vi-VN" };

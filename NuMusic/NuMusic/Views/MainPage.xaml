@@ -7,14 +7,15 @@
              xmlns:i18n="clr-namespace:NuMusic.Helpers"
              xmlns:sfTabView="clr-namespace:Syncfusion.XForms.TabView;assembly=Syncfusion.SfTabView.XForms"
              xmlns:views="clr-namespace:NuMusic.Views"
-             x:Class="NuMusic.Views.MainPage">
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             x:Class="NuMusic.Views.MainPage"> 
     <ContentPage.Content>
         <sfTabView:SfTabView x:Name="TabContents"
                              EnableSwiping="False"
                              DisplayMode="Image"
                              VisibleHeaderCount="3"
                              TabHeaderPosition="Bottom" 
-                             BackgroundColor="{StaticResource LightGrayColor}"
+                             BackgroundColor="Transparent"
                              SelectionChanged="TabContents_SelectionChanged">
             <sfTabView:SfTabView.SelectionIndicatorSettings>
                 <sfTabView:SelectionIndicatorSettings Color="{StaticResource PrimaryColor}" />
