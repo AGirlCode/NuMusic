@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:sf="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             mc:Ignorable="d"
+             x:Class="NuMusic.Views.LibraryContentView"
+             x:Name="view">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions"
+                        Value="Fill" />
+                <Setter Property="HorizontalOptions"
+                        Value="Fill" />
+                <Setter Property="VerticalTextAlignment"
+                        Value="Center" />
+                <Setter Property="HorizontalTextAlignment"
+                        Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout x:Name="MainLayout"
+                     BackgroundColor="White"
+                     BindingContext="{Binding DataSource, Source={x:Reference view}}"
+                     Padding="0">
+            <sf:SfListView ItemsSource="{Binding SongList}"
+                           BackgroundColor="White"
+                           Margin="0"
+                           RowSpacing="0"
+                           ItemSize="65"
+                           HeaderSize="50"
+                           IsStickyHeader="True"
+                           SelectionBackgroundColor="Transparent">
+                <sf:SfListView.HeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Button Text="Danh sách nhạc"
+                                    BackgroundColor="{StaticResource PrimaryColor}"
+                                    FontSize="{OnPlatform iOS=15,Android=14}"
+                                    FontAttributes="Bold"
+                                    BorderColor="{StaticResource PrimaryColor}"
+                                    BorderWidth="1"
+                                    CornerRadius="0"
+                                    Padding="0"
+                                    TextColor="White"
+                                    VerticalOptions="Fill"
+                                    HorizontalOptions="Fill" />
+                        </ViewCell>
+                    </DataTemplate>
+                </sf:SfListView.HeaderTemplate>
+                <sf:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BorderColor="{StaticResource LightGrayColor}"
+                                   CornerRadius="10"
+                                   Padding="8"
+                                   Margin="16,4,16,4"
+                                   HasShadow="True">
+                            <Grid Padding="0"
+                                  RowSpacing="0"
+                                  Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition /> 
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0"
+                                       Grid.Row="0"
+                                       Text="{Binding Title}"
+                                       TextColor="Black"
+                                       FontAttributes="Bold"
+                                       FontSize="{OnPlatform iOS=14, Android=14}" />
+                                <Label Grid.Column="0"
+                                       Grid.Row="1"
+                                       Text="{Binding ContributingArtists}"
+                                       TextColor="#333333"
+                                       FontSize="{OnPlatform iOS=12, Android=12}" />
+                                <Label Grid.Column="1"
+                                       Grid.Row="1"
+                                       Text="{Binding Length}"
+                                       TextColor="#333333"
+                                       HorizontalTextAlignment="End"
+                                       FontSize="{OnPlatform iOS=12, Android=12}" />
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </sf:SfListView.ItemTemplate>
+            </sf:SfListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

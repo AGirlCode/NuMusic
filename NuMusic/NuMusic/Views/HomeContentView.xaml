@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:svg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             mc:Ignorable="d"
+             xmlns:helper="clr-namespace:NuMusic.Helpers"
+             x:Class="NuMusic.Views.HomeContentView"
+             x:Name="view">
+    <ContentView.Content>
+        <Grid BindingContext="{Binding DataSource, Source={x:Reference view}}"
+              BackgroundColor="White"
+              Padding="8">
+            <Grid.RowDefinitions>
+                <!--title-->
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <!--main-->
+                <RowDefinition Height="*" />
+                <!--thanh progressbar-->
+                <RowDefinition Height="50" />
+                <!--play music-->
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Label x:Name="TitleLabel"
+                   Grid.Row="0"
+                   Text="Hương tóc mạ non"
+                   FontSize="{OnPlatform iOS=20,Android=20}"
+                   FontAttributes="Bold"
+                   TextColor="{StaticResource PrimaryColor}"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" />
+            <Label Grid.Row="1"
+                   Text="Quốc Đại - Cẩm Ly"
+                   FontSize="{OnPlatform iOS=14,Android=14}"
+                   TextColor="{StaticResource PrimaryColor}"
+                   VerticalOptions="Fill"
+                   HorizontalOptions="Fill"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center" />
+            <!--Text="{helper:Translate 1000}"-->
+            <svg:SvgCachedImage x:Name="PlayingImg"
+                                Grid.Row="2"
+                                Aspect="AspectFit"
+                                Source="resource://NuMusic.Resources.Svg.icon_playing.svg"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="50" />
+            <ProgressBar  x:Name="LengthSongProgressBar"
+                          Grid.Row="3"
+                          HeightRequest="4"
+                          Progress="0.5"
+                          Margin="20, 0, 20, 0"
+                          BackgroundColor="Transparent"
+                          ProgressColor="{StaticResource GrayColor}" />
+            <Frame Grid.Row="4"
+                   Margin="0"
+                   Padding="8,0,8,0"
+                   BackgroundColor="White"
+                   HasShadow="True"
+                   CornerRadius="4"
+                   BorderColor="{StaticResource GrayColor}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--Loại play nhạc: lặp 1 bài, lặp cả list, lặp ngẫu nhiên-->
+                    <svg:SvgCachedImage  x:Name="TypePlaySongImage"
+                                         Grid.Column="0"
+                                         Aspect="AspectFit"
+                                         Source="resource://NuMusic.Resources.Svg.icon_play_repeat.svg"
+                                         VerticalOptions="CenterAndExpand"
+                                         WidthRequest="28">
+                        <svg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TypePlaysongImageClickedCommand}"
+                                                  Tapped="TypePlaySongImage_Tapped" />
+                        </svg:SvgCachedImage.GestureRecognizers>
+                    </svg:SvgCachedImage>
+                    <!--trở về bài trước-->
+                    <svg:SvgCachedImage  x:Name="PreviousSongImage"
+                                         Grid.Column="1"
+                                         Aspect="AspectFit"
+                                         Source="resource://NuMusic.Resources.Svg.icon_back.svg"
+                                         VerticalOptions="CenterAndExpand"
+                                         WidthRequest="28">
+                        <svg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PreviousSongImageClickedCommand}"
+                                                  Tapped="PreviousSongImage_Tapped" />
+                        </svg:SvgCachedImage.GestureRecognizers>
+                    </svg:SvgCachedImage>
+                    <!--play - pause-->
+                    <svg:SvgCachedImage x:Name="PlaySongImage"
+                                        Grid.Column="2"
+                                        Aspect="AspectFit"
+                                        Source="resource://NuMusic.Resources.Svg.icon_pause.svg"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="28"
+                                        Margin="4,0,4,0">
+                        <svg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PlaySongImageClickCommand}"
+                                                  Tapped="PlaySongImage_Tapped" />
+                        </svg:SvgCachedImage.GestureRecognizers>
+                    </svg:SvgCachedImage>
+                    <!--play next-->
+                    <svg:SvgCachedImage x:Name="NextSongImage"
+                                        Grid.Column="3"
+                                        Aspect="AspectFit"
+                                        Source="resource://NuMusic.Resources.Svg.icon_next.svg"
+                                        VerticalOptions="CenterAndExpand"
+                                        WidthRequest="28">
+                        <svg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NextSongImageClickedCommand}"
+                                                  Tapped="NextSongImage_Tapped" />
+                        </svg:SvgCachedImage.GestureRecognizers>
+                    </svg:SvgCachedImage>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,54 +1,53 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NuMusic.ViewModels;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using NuMusic.Models;
 
 namespace NuMusic.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : ContentPage
     {
-        Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
+        private MainContentPageVM _viewModel;
         public MainPage()
         {
             InitializeComponent();
+            _viewModel = (MainContentPageVM)BindingContext;
+            TabContents.SelectedIndex = 1;
+            TabContents.Items[0].ImageSource = "ic_library.png";
+            TabContents.Items[1].ImageSource = "ic_home_selected.png";
+            TabContents.Items[2].ImageSource = "ic_search.png";
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-            MasterBehavior = MasterBehavior.Popover;
-
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
-        public async Task NavigateFromMenu(int id)
+        private void TabContents_SelectionChanged(object sender, Syncfusion.XForms.TabView.SelectionChangedEventArgs e)
         {
-            if (!MenuPages.ContainsKey(id))
+            switch (e.Index)
             {
-                switch (id)
+                case 0:
+                    TabContents.Items[0].ImageSource = "ic_library_selected.png";
+                    TabContents.Items[1].ImageSource = "ic_home.png";
+                    TabContents.Items[2].ImageSource = "ic_search.png";
+                    break;
+                case 1:
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    TabContents.Items[0].ImageSource = "ic_library.png";
+                    TabContents.Items[1].ImageSource = "ic_home_selected.png";
+                    TabContents.Items[2].ImageSource = "ic_search.png";
+                    break;
                 }
-            }
-
-            var newPage = MenuPages[id];
-
-            if (newPage != null && Detail != newPage)
-            {
-                Detail = newPage;
-
-                if (Device.RuntimePlatform == Device.Android)
-                    await Task.Delay(100);
-
-                IsPresented = false;
+                case 2:
+                {
+                    TabContents.Items[0].ImageSource = "ic_library.png";
+                    TabContents.Items[1].ImageSource = "ic_home.png";
+                    TabContents.Items[2].ImageSource = "ic_search_selected.png";
+                    break;
+                }
             }
         }
     }
