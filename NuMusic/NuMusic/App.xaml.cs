@@ -51,7 +51,7 @@ namespace NuMusic
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IPropertyService, PropertyService>();
+            containerRegistry.Register<IPropertyService, PropertyService>(); 
             containerRegistry.RegisterForNavigation<MainPage, MainContentPageVM>();
 
         }

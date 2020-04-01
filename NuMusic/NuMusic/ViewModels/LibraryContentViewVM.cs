@@ -1,5 +1,8 @@
-﻿using NuMusic.Models.DTO;
+﻿using NuMusic.Models;
+using NuMusic.Models.DTO;
 using Prism.Navigation;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace NuMusic.ViewModels
@@ -9,6 +12,7 @@ namespace NuMusic.ViewModels
         private string _tesst;
         private ObservableCollection<SongDTO> _songList;
         private readonly INavigationService _navigationService;
+
 
 
         public ObservableCollection<SongDTO> SongList { get => _songList; set => SetProperty(ref _songList, value); }
@@ -40,6 +44,14 @@ namespace NuMusic.ViewModels
                 new SongDTO(){Title = "Hương tóc mạ non96", ContributingArtists ="Quốc Đại", Length ="4:30"},
                 new SongDTO(){Title = "Hương tóc mạ non97", ContributingArtists ="Quốc Đại", Length ="4:30"}
             };
+        }
+        public List<AudioModel> getAllAudioFromDevice()
+        {
+            List<AudioModel> tempAudioList = new ObservableCollection<>();
+
+            
+
+            return tempAudioList;
         }
     }
 }

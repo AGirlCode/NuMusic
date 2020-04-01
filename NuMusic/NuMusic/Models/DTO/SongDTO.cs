@@ -7,6 +7,10 @@ namespace NuMusic.Models.DTO
         public string ID { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
+        /// <summary>
+        /// đường dẫn trong device
+        /// </summary>
+        public string Path { get; set; }
         public string Comments { get; set; }
         /// <summary>
         /// lời bài hát

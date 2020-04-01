@@ -89,8 +89,7 @@
                                          VerticalOptions="CenterAndExpand"
                                          WidthRequest="28">
                         <svg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PreviousSongImageClickedCommand}"
-                                                  Tapped="PreviousSongImage_Tapped" />
+                            <TapGestureRecognizer  Tapped="PreviousSongImage_Tapped" />
                         </svg:SvgCachedImage.GestureRecognizers>
                     </svg:SvgCachedImage>
                     <!--play - pause-->
@@ -102,8 +101,7 @@
                                         WidthRequest="28"
                                         Margin="4,0,4,0">
                         <svg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding PlaySongImageClickCommand}"
-                                                  Tapped="PlaySongImage_Tapped" />
+                            <TapGestureRecognizer Tapped="PlaySongImage_Tapped" />
                         </svg:SvgCachedImage.GestureRecognizers>
                     </svg:SvgCachedImage>
                     <!--play next-->
@@ -114,8 +112,7 @@
                                         VerticalOptions="CenterAndExpand"
                                         WidthRequest="28">
                         <svg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NextSongImageClickedCommand}"
-                                                  Tapped="NextSongImage_Tapped" />
+                            <TapGestureRecognizer  Tapped="NextSongImage_Tapped" />
                         </svg:SvgCachedImage.GestureRecognizers>
                     </svg:SvgCachedImage>
                 </Grid>

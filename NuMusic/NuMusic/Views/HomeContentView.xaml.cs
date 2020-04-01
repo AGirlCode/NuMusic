@@ -61,6 +61,8 @@ namespace NuMusic.Views
 
         private void PreviousSongImage_Tapped(object sender, EventArgs e)
         {
+            var viewModel = DataSource;
+            viewModel.NextSongImageClicked();
 
         }
 
@@ -78,11 +80,13 @@ namespace NuMusic.Views
                 _animation.Stop();
                 PlaySongImage.Source = SvgImageSource.FromResource("NuMusic.Resources.Svg.icon_pause.svg");
             }
+            viewModel.PlaySongImageClick();
         }
 
         private void NextSongImage_Tapped(object sender, EventArgs e)
         {
-
+            var viewModel = DataSource;
+            viewModel.NextSongImageClicked();
         }
     }
     class ImageRotationAnimation

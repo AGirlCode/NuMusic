@@ -1,7 +1,9 @@
-﻿using Prism.Commands;
+﻿using NuMusic.Services;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace NuMusic.ViewModels
 {
@@ -16,7 +18,9 @@ namespace NuMusic.ViewModels
         private readonly INavigationService _navigationService;
         private bool _isPlayingMusic;
         private TYPE_PLAY_MUSIC _typePlayMusic;
+        private bool _isStopped;
 
+        private IAudioPlayerService _audioPlayer;
         /// <summary>
         /// Playing or pause
         /// </summary>
@@ -24,35 +28,47 @@ namespace NuMusic.ViewModels
 
         public TYPE_PLAY_MUSIC TypePlayMusic { get => _typePlayMusic; set => SetProperty(ref _typePlayMusic, value); }
 
-        public ICommand TypePlaysongImageClickedCommand
-        { get; set; }
-        public ICommand PreviousSongImageClickedCommand { get; set; }
-        public ICommand PlaySongImageClickCommand { get; set; }
-        public ICommand NextSongImageClickedCommand { get; set; }
         public HomeContentViewVM(INavigationService navigationService) : base(navigationService)
         {
             _navigationService = navigationService;
             IsPlayingMusic = false;
             TypePlayMusic = TYPE_PLAY_MUSIC.PLAY_REPEAT_ALL;
-            TypePlaysongImageClickedCommand = new DelegateCommand(() => TypePlaysongImageClicked());
-            PreviousSongImageClickedCommand = new DelegateCommand(() => PreviousSongImageClicked());
-            PlaySongImageClickCommand = new DelegateCommand(() => PlaySongImageClick());
-            NextSongImageClickedCommand = new DelegateCommand(() => NextSongImageClicked());
+            _audioPlayer = DependencyService.Get<IAudioPlayerService>();
+            _audioPlayer.OnFinishedPlaying = () =>
+            {
+                _isStopped = true;
+            };
+            _isStopped = true;
         }
 
-        private void PlaySongImageClick()
+        public void PlaySongImageClick()
+        {
+            if (_audioPlayer == null)
+                _audioPlayer = DependencyService.Get<IAudioPlayerService>();
+
+            if (IsPlayingMusic)
+            {
+                if (_isStopped)
+                {
+                    _isStopped = false;
+                    _audioPlayer.Play("huongtocmanon.mp3");
+                } else
+                    _audioPlayer.Play();
+            } else
+            {
+                _audioPlayer.Pause();
+            }
+        }
+
+        public void PreviousSongImageClicked()
         {
         }
 
-        private void PreviousSongImageClicked()
+        public void NextSongImageClicked()
         {
         }
 
-        private void NextSongImageClicked()
-        {
-        }
-
-        private void TypePlaysongImageClicked()
+        public void TypePlaysongImageClicked()
         {
 
         }
