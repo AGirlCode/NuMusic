@@ -5,6 +5,7 @@ using NuMusic.Models;
 using NuMusic.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(InfoService))]
@@ -12,48 +13,40 @@ namespace NuMusic.Droid.DependencyService
 {
     public class InfoService : IInfoService
     {
-        public IEnumerable<AudioModel> GetListAudioModel()
+        public ObservableCollection<AudioModel> GetListAudioModel( )
         {
-            //try
-            //{
-            //    File rootFolder = new File("/audio");
-            //    File[] files = rootFolder.ListFiles(); //here you will get NPE if directory doesn't contains  any file,handle it like this.
-            //    foreach (File file in files)
-            //    {
-            //        if (file.IsDirectory)
-            //        {
-            //            var temp = GetListAudioModel(file.AbsolutePath);
-            //            if (temp != null)
-            //            {
-            //                fileList.addAll(temp);
-            //            } else
-            //            {
-            //                break;
-            //            }
-            //        } else if (file.Name.EndsWith(".mp3"))
-            //        {
-            //            HashMap<String, String> song = new HashMap<>();
-            //            song.put("file_path", file.AbsolutePath);
-            //            song.put("file_name", file.Name);
-            //            fileList.add();
-            //        }
-            //    }
-            //    return fileList;
-            //} catch (Exception e)
-            //{
-            //    return null;
-            //}
-           
+            final String MEDIA_PATH = Environment.getExternalStorageDirectory() + "";
+
+            var fileList = new ObservableCollection<AudioModel>();
+
+            try
+            {
+                File rootFolder = new File(filePath);
+                File[] files = rootFolder.ListFiles(); //here you will get NPE if directory doesn't contains  any file,handle it like this.
+                foreach (File file in files)
+                {
+                    if (file.IsDirectory)
+                    {
+                        var itemFile = GetListAudioModel(file.AbsolutePath);
+                        if (itemFile != null)
+                        {
+                            foreach (var item in itemFile)
+                                fileList.Add(item);
+                        } else
+                        {
+                            break;
+                        }
+                    } else if (file.Name.EndsWith(".mp3"))
+                    {
+                        fileList.Add(new AudioModel() { Name = file.Name, Path = file.Path });
+                    }
+                }
+                return fileList;
+            } catch (Exception e)
+            {
+                return new ObservableCollection<AudioModel>();
+            }
+
         }
     }
-
-        private object getPlayList(object p)
-        {
-            throw new NotImplementedException();
-        }
-
-        private object GetListAudioModel(object p)
-        {
-            throw new NotImplementedException();
-        }
-    }
+}

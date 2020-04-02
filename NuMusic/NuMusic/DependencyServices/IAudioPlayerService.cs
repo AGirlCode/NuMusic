@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace NuMusic.Services
+namespace NuMusic.DependencyServices
 {
     public interface IAudioPlayerService
     {

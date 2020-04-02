@@ -1,6 +1,6 @@
 ﻿using Android.Media;
+using NuMusic.DependencyServices;
 using NuMusic.Droid.DependencyService;
-using NuMusic.Services;
 using System;
 using Xamarin.Forms;
 

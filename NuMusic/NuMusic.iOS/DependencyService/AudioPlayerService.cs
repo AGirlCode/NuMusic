@@ -1,7 +1,7 @@
 ﻿using AVFoundation;
 using Foundation;
+using NuMusic.DependencyServices;
 using NuMusic.iOS.DependencyService;
-using NuMusic.Services;
 using System;
 using Xamarin.Forms;
 

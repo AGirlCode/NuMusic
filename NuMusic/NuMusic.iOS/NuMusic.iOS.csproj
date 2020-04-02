@@ -63,6 +63,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DependencyService\AudioPlayerService.cs" />
+    <Compile Include="DependencyService\HandleFile.cs" />
+    <Compile Include="DependencyService\PreviewControllerDS.cs" />
+    <Compile Include="DependencyService\QLPreviewItemFileSystem.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

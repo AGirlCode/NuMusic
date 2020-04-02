@@ -1,13 +1,11 @@
 ﻿using NuMusic.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
 
 namespace NuMusic.Services
 {
     public interface IInfoService
     {
-        IEnumerable<AudioModel> GetListAudioModel();
+        ObservableCollection<AudioModel> GetListAudioModel( );
        
     }
 }
